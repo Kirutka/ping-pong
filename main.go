@@ -115,7 +115,6 @@ func NewGame() *Game {
 func (g *Game) Update() error {
 	mouseX, mouseY := ebiten.CursorPosition()
 	mousePressed := ebiten.IsMouseButtonPressed(ebiten.MouseButtonLeft)
-	ebiten.IsKeyPressed(ebiten.KeySpace)
 	escapePressed := ebiten.IsKeyPressed(ebiten.KeyEscape)
 
 	g.updateButtonHover(float32(mouseX), float32(mouseY))
@@ -138,6 +137,7 @@ func (g *Game) updateMenu(mouseX, mouseY float32, mousePressed bool) error {
 			g.state = PlayingState
 		}
 		if g.isInButton(mouseX, mouseY, g.exitButton) {
+			return ebiten.Termination
 		}
 	}
 	g.mousePressed = mousePressed
