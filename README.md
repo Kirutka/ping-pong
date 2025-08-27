@@ -40,13 +40,14 @@
 
 ```bash
 git clone https://github.com/Kirutka/ping-pong
-cd game
+cd ping-pong
 ```
 
 3. Установите зависимости:
 
 ```bash
-go mod download
+go mod init ping-pong
+go mod tidy
 ```
 
 4. Запустите игру:
